@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import Share, {Social} from 'react-native-share';
 
 const {LNExtensionExecutorModule} = NativeModules;
 function App(): React.JSX.Element {
@@ -53,6 +54,17 @@ function App(): React.JSX.Element {
           LNExtensionExecutorModule.shareWithSnapchat(
             'https://www.hackingwithswift.com',
           );
+        }}
+      />
+
+      <Button
+        title="Messages"
+        onPress={() => {
+          Share.shareSingle({
+            social: Social.Sms,
+            message: 'Hello how are you ?',
+            recipient: '',
+          });
         }}
       />
     </SafeAreaView>
