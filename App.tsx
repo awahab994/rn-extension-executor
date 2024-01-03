@@ -33,27 +33,51 @@ function App(): React.JSX.Element {
       />
       <Button
         title="WhatsApp"
-        onPress={() => {
-          LNExtensionExecutorModule.shareWithWhatsApp(
-            'https://www.hackingwithswift.com',
-          );
+        onPress={async () => {
+          try {
+            let response = await LNExtensionExecutorModule.socialShare(
+              'net.whatsapp.WhatsApp.ShareExtension',
+              'Checkout this website',
+              'https://www.hackingwithswift.com',
+            );
+
+            console.log(response);
+          } catch (e) {
+            console.log(e);
+          }
         }}
       />
 
       <Button
         title="Instagram"
-        onPress={() => {
-          LNExtensionExecutorModule.shareWithInstagram(
-            'https://www.hackingwithswift.com',
-          );
+        onPress={async () => {
+          try {
+            let response = await LNExtensionExecutorModule.socialShare(
+              'com.burbn.instagram.shareextension',
+              'Check out this website',
+              'https://www.hackingwithswift.com',
+            );
+
+            console.log(response);
+          } catch (e) {
+            console.log(e);
+          }
         }}
       />
       <Button
         title="Snapchat"
-        onPress={() => {
-          LNExtensionExecutorModule.shareWithSnapchat(
-            'https://www.hackingwithswift.com',
-          );
+        onPress={async () => {
+          try {
+            let response = await LNExtensionExecutorModule.socialShare(
+              'com.toyopagroup.picaboo.share',
+              'Checkout this website',
+              'https://www.hackingwithswift.com',
+            );
+
+            console.log(response);
+          } catch (e) {
+            console.log(e);
+          }
         }}
       />
 
